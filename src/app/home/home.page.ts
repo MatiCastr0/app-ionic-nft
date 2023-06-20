@@ -16,7 +16,6 @@ export class HomePage {
   ngOnInit() {
     this.getapiService.getdata().subscribe((data: Nft[]) => {
       this.getdata = data;
-      console.log(this.getdata);
     });
   }
 }

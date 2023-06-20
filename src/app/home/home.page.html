@@ -1,24 +1,21 @@
+
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title> Top NFT </ion-title>
+    <ion-title> Home </ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">TOP NFT</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <app-search-bar></app-search-bar>
-
   <ion-card *ngFor="let nft of getdata">
     <ion-card-header>
-      <p>{{ nft.contract_address }}</p>
-      <p>{{ nft.asset_platform_id }}</p>
-      <ion-card-title>{{ nft.name }}</ion-card-title>
       <ion-card-subtitle>{{ nft.symbol }}</ion-card-subtitle>
+      <ion-card-title>{{ nft.name }}</ion-card-title>
+      <p>#{{ nft.asset_platform_id }}</p>
+      <p>{{ nft.contract_address }}</p>
     </ion-card-header>
   </ion-card>
 </ion-content>

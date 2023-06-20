@@ -1,4 +1,8 @@
-<ion-searchbar [debounce]="1000" (ionInput)="handleInput($event)"></ion-searchbar>
+<ion-searchbar
+  [debounce]="1000"
+  (ionInput)="handleInput($event)"
+></ion-searchbar>
+
 <ng-container *ngIf="isSearchPerformed">
   <ng-container *ngIf="noResultsFound; else searchResults">
     <p>No hay coincidencias para la búsqueda.</p>
@@ -6,10 +10,10 @@
   <ng-template #searchResults>
     <ion-card *ngFor="let nft of filteredData" color="primary">
       <ion-card-header>
-        <p>{{ nft.contract_address }}</p>
-        <p>{{ nft.asset_platform_id }}</p>
-        <ion-card-title>{{ nft.name }}</ion-card-title>
         <ion-card-subtitle>{{ nft.symbol }}</ion-card-subtitle>
+        <ion-card-title>{{ nft.name }}</ion-card-title>
+        <p>#{{ nft.asset_platform_id }}</p>
+        <p>{{ nft.contract_address }}</p>
       </ion-card-header>
     </ion-card>
   </ng-template>
