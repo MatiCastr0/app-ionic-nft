@@ -1,22 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { GetapiService } from '../services/getapi.service';
 import { Nft } from '../interfaces/interfaces';
-
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage implements OnInit
-{
+export class HomePage {
   getdata: Nft[] = [];
 
-  constructor(private _services: GetapiService){}
+  constructor(private getapiService: GetapiService) {}
 
 
   ngOnInit() {
-    this._services.getdata().subscribe((data) => {
+    this.getapiService.getdata().subscribe((data: Nft[]) => {
       this.getdata = data;
       console.log(this.getdata);
     });
