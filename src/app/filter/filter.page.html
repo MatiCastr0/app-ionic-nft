@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Filtrar </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+
+<ion-list>
+  <ion-item>
+    <ion-select
+      aria-label="Platform"
+      [compareWith]="compareWith"
+      placeholder="Selecciona la plataforma"
+      (ionChange)="handleChange($event)"
+    >
+      <ion-select-option *ngFor="let platform of platforms" [value]="platform">{{ platform.asset_platform_id }}</ion-select-option>
+    </ion-select>
+  </ion-item>
+</ion-list>
+
+<ng-container *ngIf="isSearchPerformed">
+  <ng-container *ngIf="noResultsFound; else searchResults">
+    <p>No hay coincidencias para el filtro seleccionado.</p>
+  </ng-container>
+  <ng-template #searchResults>
+    <ion-card *ngFor="let nft of filteredData" color="primary">
+      <ion-card-header>
+        <ion-card-subtitle>{{ nft.symbol }}</ion-card-subtitle>
+        <ion-card-title>{{ nft.name }}</ion-card-title>
+        <p>#{{ nft.asset_platform_id }}</p>
+        <p>{{ nft.contract_address }}</p>
+      </ion-card-header>
+    </ion-card>
+  </ng-template>
+</ng-container>
+</ion-content>

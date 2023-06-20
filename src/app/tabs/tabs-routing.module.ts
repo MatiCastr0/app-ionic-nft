@@ -15,8 +15,8 @@ const routes: Routes = [
         path: 'tab2',
         loadChildren: () => import('../searchbar/searchbar.module').then(m => m.SearchbarPageModule)
       }, {
-        path: 'tab1',
-        loadChildren: () => import('../home/home.module').then(m => m.HomePageModule)
+        path: 'tab3',
+        loadChildren: () => import('../filter/filter.module').then(m => m.FilterPageModule)
       },
       {
         path: '',

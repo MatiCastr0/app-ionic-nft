@@ -31,4 +31,5 @@ export class SearchBarComponent {
       this.router.navigateByUrl('/');
     }
   }
+  
 }
